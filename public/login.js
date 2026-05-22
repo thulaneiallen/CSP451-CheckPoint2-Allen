@@ -27,6 +27,12 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
+if (email.length > 120) {
+  showMessage("Email must be 120 characters or fewer.", "error");
+  return;
+}
+
+
   if (!isValidEmail(email)) {
     showMessage("Please enter a valid email address.", "error");
     return;
