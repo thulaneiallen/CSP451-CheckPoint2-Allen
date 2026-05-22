@@ -1,6 +1,7 @@
 const assert = require("assert");
 const { connect } = require("../db");
-const { router } = require("../routes/api");
+const { router: authRouter } = require("../routes/auth");
+const { router: apiRouter } = require("../routes/api");
 const { validateItemInput } = require("../routes/api/items");
 
 (function run() {
@@ -8,7 +9,9 @@ const { validateItemInput } = require("../routes/api/items");
 
   assert.strictEqual(typeof db, "object");
   assert.strictEqual(db.connected, true);
-  assert.strictEqual(typeof router, "function");
+
+  assert.strictEqual(typeof authRouter, "function");
+  assert.strictEqual(typeof apiRouter, "function");
 
   const missingNameErrors = validateItemInput({});
   assert.ok(missingNameErrors.includes("Item name is required."));
