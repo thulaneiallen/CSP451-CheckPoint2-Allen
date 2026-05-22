@@ -2,7 +2,7 @@
 
 This repository is a starter project for practicing advanced Git workflows, including branching, pull requests, self-review, merge conflicts, and squash merges.
 
-## Quick Start
+## Quick Start (Auth Branch Notes)
 
 ```bash
 npm install

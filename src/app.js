@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const { router: apiRouter } = require("./routes/api");
+const { router: authRouter } = require("./routes/auth");
 const { router: viewRouter } = require("./routes/views");
 
 const app = express();
@@ -13,6 +14,8 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/", viewRouter);
 app.use("/api", apiRouter);
+app.use("/api/auth", authRouter);
+
 
 app.use((req, res) => {
   res.status(404).json({ error: "Not Found" });
