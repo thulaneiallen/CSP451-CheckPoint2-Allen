@@ -1,9 +1,9 @@
 const express = require("express");
 
+const { router: healthRouter } = require("./api/health");
+
 const router = express.Router();
 
-router.get("/health", (req, res) => {
-  res.json({ status: "ok", time: new Date().toISOString() });
-});
+router.use("/health", healthRouter);
 
 module.exports = { router };
